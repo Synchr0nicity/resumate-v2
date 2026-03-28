@@ -14,7 +14,10 @@ export default function LoginPage() {
 
       <Button
         onClick={() =>
-          signIn("google", { prompt: "select_account", callbackUrl: "/" })
+          signIn("google", {
+            prompt: "select_account",
+            callbackUrl: "/dashboard",
+          })
         }
       >
         Sign in with Google
