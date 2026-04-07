@@ -25,10 +25,45 @@ model Resume {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   title     String
-  content   Json
+  personalDetails PersonalDetails?
+  workHistory     Job[]
+  education       Education[]
+  skills          String[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   pdfUrl    String?
+}
+
+model PersonalDetails {
+  id      String @id @default(cuid())
+  resume  Resume @relation(fields: [resumeId], references: [id])
+  resumeId String @unique
+  name     String?
+  email    String?
+  phone    String?
+  address  String?
+  dob      DateTime?
+}
+
+model Job {
+  id        String  @id @default(cuid())
+  resume    Resume  @relation(fields: [resumeId], references: [id])
+  resumeId  String
+  company   String?
+  title     String?
+  startDate DateTime?
+  endDate   DateTime?
+  description String?
+}
+
+model Education {
+  id        String  @id @default(cuid())
+  resume    Resume  @relation(fields: [resumeId], references: [id])
+  resumeId  String
+  school    String?
+  degree    String?
+  startDate DateTime?
+  endDate   DateTime?
 }
 
 model Account {
