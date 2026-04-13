@@ -2,7 +2,7 @@
 
 import {
   Education,
-  Job,
+  Experience,
   PersonalDetails,
   Resume,
 } from "@/generated/prisma/client";
@@ -10,7 +10,7 @@ import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 
 type ResumeEntity = Resume & {
-  workHistory: Job[];
+  workHistory: Experience[];
   education: Education[];
   personalDetails: PersonalDetails | null;
 };

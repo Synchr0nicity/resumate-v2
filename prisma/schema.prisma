@@ -26,7 +26,7 @@ model Resume {
   userId    String
   title     String
   personalDetails PersonalDetails?
-  workHistory     Job[]
+  workHistory     Experience[]
   education       Education[]
   skills          String[]
   createdAt DateTime @default(now())
@@ -36,34 +36,46 @@ model Resume {
 
 model PersonalDetails {
   id      String @id @default(cuid())
-  resume  Resume @relation(fields: [resumeId], references: [id])
+  resume  Resume @relation(fields: [resumeId], references: [id], onDelete: Cascade)
   resumeId String @unique
   name     String?
+  description String?
   email    String?
   phone    String?
   address  String?
-  dob      DateTime?
+  dob      String?
+  reference String?
+  links    Link[]
 }
 
-model Job {
+model Experience {
   id        String  @id @default(cuid())
-  resume    Resume  @relation(fields: [resumeId], references: [id])
+  resume    Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
   resumeId  String
   company   String?
   title     String?
-  startDate DateTime?
-  endDate   DateTime?
+  startDate String?
+  endDate   String?
   description String?
 }
 
 model Education {
   id        String  @id @default(cuid())
-  resume    Resume  @relation(fields: [resumeId], references: [id])
+  resume    Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
   resumeId  String
   school    String?
   degree    String?
-  startDate DateTime?
-  endDate   DateTime?
+  startDate String?
+  endDate   String?
+}
+
+model Link {
+  id         String @id @default(cuid())
+  label      String?
+  url        String
+
+  personal   PersonalDetails @relation(fields: [personalId], references: [id], onDelete: Cascade)
+  personalId String
 }
 
 model Account {
