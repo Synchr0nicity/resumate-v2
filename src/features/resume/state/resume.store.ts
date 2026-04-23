@@ -41,7 +41,7 @@ export const useResumeStore = create<ResumeStore>((set) => ({
       reference: "",
       description: "",
     },
-    experience: [],
+    workHistory: [],
     education: [],
   },
 
@@ -97,7 +97,7 @@ export const useResumeStore = create<ResumeStore>((set) => ({
     set((state) => ({
       resume: {
         ...state.resume,
-        experience: [...state.resume.experience, item],
+        experience: [...state.resume.workHistory, item],
       },
     })),
 
@@ -105,7 +105,7 @@ export const useResumeStore = create<ResumeStore>((set) => ({
     set((state) => ({
       resume: {
         ...state.resume,
-        experience: state.resume.experience.map((exp) =>
+        experience: state.resume.workHistory.map((exp) =>
           exp.id === id ? { ...exp, ...data } : exp,
         ),
       },
@@ -115,7 +115,7 @@ export const useResumeStore = create<ResumeStore>((set) => ({
     set((state) => ({
       resume: {
         ...state.resume,
-        experience: state.resume.experience.filter((exp) => exp.id !== id),
+        experience: state.resume.workHistory.filter((exp) => exp.id !== id),
       },
     })),
 
@@ -158,7 +158,7 @@ export const useResumeStore = create<ResumeStore>((set) => ({
           reference: "",
           description: "",
         },
-        experience: [],
+        workHistory: [],
         education: [],
       },
     }),

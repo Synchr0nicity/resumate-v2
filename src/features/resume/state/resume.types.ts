@@ -38,6 +38,6 @@ export type Resume = {
 
   personalDetails: PersonalDetails;
 
-  experience: Experience[];
+  workHistory: Experience[];
   education: Education[];
 };

@@ -1,3 +1,4 @@
+import ResumePreview from "@/features/resume/components/preview/ResumePreview";
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 
@@ -13,7 +14,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Flex className="create-resume-editor" flex={1}>
         {children}
       </Flex>
-      <Flex className="create-resume-preview" flex={1}></Flex>
+      <Flex className="create-resume-preview" flex={1}>
+        <ResumePreview />
+      </Flex>
     </Flex>
   );
 }
