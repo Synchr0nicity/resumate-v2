@@ -1,6 +1,7 @@
 import { Flex, ButtonGroup, Button, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
+import { AppText } from "../atoms/AppText";
 
 const NavBar = () => {
   return (
@@ -14,6 +15,10 @@ const NavBar = () => {
       fontSize="14px"
       border="1px solid #E2E8F0"
       position="fixed"
+      top="0"
+      left="0"
+      zIndex={10}
+      bg="#ffff"
     >
       <Link
         href="#"
@@ -36,7 +41,7 @@ const NavBar = () => {
               style={{ color: "#FFFFFF" }}
             />
           </Flex>
-          <Text mb="0" fontSize="28px" fontWeight="700">
+          <Text mb="0" letterSpacing="-0.5px" fontSize="20px" fontWeight="700">
             Resumate
           </Text>
         </Flex>
@@ -53,9 +58,9 @@ const NavBar = () => {
           transition="color .3s ease-in-out"
         >
           <Flex gap="8px" color="inherit">
-            <Text color="inherit" mb="0" fontSize="20px">
+            <AppText variant="small" fontWeight="500">
               Templates
-            </Text>
+            </AppText>
           </Flex>
         </Link>
         <Link
@@ -69,9 +74,9 @@ const NavBar = () => {
           transition="color .3s ease-in-out"
         >
           <Flex gap="8px" color="inherit">
-            <Text color="inherit" mb="0" fontSize="20px">
+            <AppText variant="small" fontWeight="500">
               Features
-            </Text>
+            </AppText>
           </Flex>
         </Link>
         <Link
@@ -85,9 +90,9 @@ const NavBar = () => {
           transition="color .3s ease-in-out"
         >
           <Flex gap="8px" color="inherit">
-            <Text color="inherit" mb="0" fontSize="20px">
+            <AppText variant="small" fontWeight="500">
               Examples
-            </Text>
+            </AppText>
           </Flex>
         </Link>
         <Link
@@ -101,14 +106,17 @@ const NavBar = () => {
           transition="color .3s ease-in-out"
         >
           <Flex gap="8px" color="inherit">
-            <Text color="inherit" mb="0" fontSize="20px">
+            <AppText variant="small" fontWeight="500">
               Pricing
-            </Text>
+            </AppText>
           </Flex>
         </Link>
       </Flex>
       <ButtonGroup gap="17px">
         <Button
+          px="0"
+          fontWeight="500"
+          fontSize="14px"
           bg="white"
           color="black"
           transition="color .3s ease-in-out"
@@ -117,7 +125,10 @@ const NavBar = () => {
           Log in
         </Button>
         <Button
+          fontSize="14px"
+          lineHeight="20px"
           bg="#0F172A"
+          fontWeight="500"
           color="#ffff"
           borderRadius="8px"
           height="39px"
@@ -129,6 +140,9 @@ const NavBar = () => {
             color: "black",
             border: "solid 1px black",
           }}
+          px="15px"
+          py="9px"
+          h="fit-content"
         >
           Build Resume
         </Button>
