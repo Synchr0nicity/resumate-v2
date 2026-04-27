@@ -3,6 +3,8 @@ import NextLink from "next/link";
 import Hero from "../components/layout/Hero";
 import WhyUs from "../components/layout/WhyUs";
 import HowWeWork from "@/components/layout/HowWeWork";
+import SuccessStories from "@/components/layout/SuccessStories";
+import CTA from "@/components/layout/CTA";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
       <Hero />
       <WhyUs />
       <HowWeWork />
+      <SuccessStories />
+      <CTA />
     </Flex>
   );
 }

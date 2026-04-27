@@ -10,6 +10,11 @@ const variants = {
     lineHeight: "28px",
     color: "#64748B",
   },
+  tiny: {
+    fontSize: "12px",
+    lineHeight: "16px",
+    color: "#64748B",
+  },
   small: {
     fontSize: "14px",
     lineHeight: "20px",
@@ -21,7 +26,7 @@ const variants = {
     lineHeight: "20px",
     color: "#64748B",
   },
-  hero: {
+  heading: {
     fontSize: "18px",
     lineHeight: "29.25px",
     color: "#64748B",
@@ -51,7 +56,7 @@ export function AppText({
   const styles = variants[variant];
 
   return (
-    <ChakraText {...styles} color={color ?? styles.color} {...props}>
+    <ChakraText mb="0" {...styles} color={color ?? styles.color} {...props}>
       {children}
     </ChakraText>
   );

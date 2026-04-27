@@ -1,9 +1,23 @@
-import { Flex, Heading, Text, Image } from "@chakra-ui/react";
+"use client";
+import {
+  Flex,
+  Heading,
+  Text,
+  Image,
+  useBreakpoint,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import React from "react";
 import DoubleCheck from "@/assets/svg/double-check.svg";
 import { AppHeading } from "../atoms/AppHeading";
 
 const WhyUs = () => {
+  const value = useBreakpointValue({
+    base: "small",
+    lg: "desktop",
+    "2xl": "veryLarge",
+  });
+
   return (
     <Flex
       className="why-us-container"
@@ -12,6 +26,7 @@ const WhyUs = () => {
       bg="#F4F6F8"
       px="80px"
       py="96px"
+      justifyContent={value === "veryLarge" ? "center" : undefined}
     >
       <Flex px="24px" flexDir="column" gap="64px">
         <Flex
@@ -52,8 +67,13 @@ const WhyUs = () => {
             that gets you noticed by recruiters.
           </Text>
         </Flex>
-        <Flex className="why-us-cards" gap="24px">
+        <Flex
+          className="why-us-cards"
+          gap="24px"
+          // justifyContent={breakpoint === "lg" ? "center" : undefined}
+        >
           <Flex
+            flex={1}
             flexDir="column"
             gap="12px"
             alignItems="flex-start"
@@ -63,6 +83,11 @@ const WhyUs = () => {
             bg="#FFFFFF"
             maxWidth="394.67px"
             className="group guided-content-card"
+            boxShadow="0px 1px 2px 0px #0000000D"
+            _hover={{
+              boxShadow:
+                "0px 7px 15px 0px #D1D1D11A, 0px 28px 28px 0px #D1D1D117, 0px 63px 38px 0px #D1D1D10D, 0px 112px 45px 0px #D1D1D103, 0px 174px 49px 0px #D1D1D100",
+            }}
           >
             <Flex
               alignItems="center"
@@ -97,6 +122,7 @@ const WhyUs = () => {
             <Image src="/content-builder.svg" />
           </Flex>
           <Flex
+            flex={1}
             flexDir="column"
             gap="12px"
             alignItems="flex-start"
@@ -106,6 +132,11 @@ const WhyUs = () => {
             bg="#FFFFFF"
             maxWidth="394.67px"
             className="group guided-content-card"
+            boxShadow="0px 1px 2px 0px #0000000D"
+            _hover={{
+              boxShadow:
+                "0px 7px 15px 0px #D1D1D11A, 0px 28px 28px 0px #D1D1D117, 0px 63px 38px 0px #D1D1D10D, 0px 112px 45px 0px #D1D1D103, 0px 174px 49px 0px #D1D1D100",
+            }}
           >
             <Flex
               alignItems="center"
@@ -139,6 +170,7 @@ const WhyUs = () => {
             <Image src="/optimized-templates.svg" />
           </Flex>
           <Flex
+            flex={1}
             flexDir="column"
             gap="12px"
             alignItems="flex-start"
@@ -148,12 +180,19 @@ const WhyUs = () => {
             bg="#FFFFFF"
             maxWidth="394.67px"
             className="group guided-content-card"
+            boxShadow="0px 1px 2px 0px #0000000D"
+            _hover={{
+              boxShadow:
+                "0px 7px 15px 0px #D1D1D11A, 0px 28px 28px 0px #D1D1D117, 0px 63px 38px 0px #D1D1D10D, 0px 112px 45px 0px #D1D1D103, 0px 174px 49px 0px #D1D1D100",
+            }}
           >
             <Flex
               alignItems="center"
               justifyContent="center"
-              px="12.5px"
-              py="14px"
+              height="48px"
+              width="48px"
+              // px="12.5px"
+              // py="14px"
               bg="#A855F71A"
               borderRadius="12px"
               fontSize="20px"

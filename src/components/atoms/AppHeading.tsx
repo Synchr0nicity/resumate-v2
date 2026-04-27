@@ -1,6 +1,6 @@
 import { Heading as ChakraHeading } from "@chakra-ui/react";
 
-type HeadingVariant = "hero" | "section";
+type HeadingVariant = "hero" | "section" | "CTA";
 
 type AppHeadingProps = {
   variant?: HeadingVariant;
@@ -22,6 +22,17 @@ export function AppHeading({
       fontWeight: "700",
       letterSpacing: "-1.8px",
       textAlign: "center",
+      margin: "0",
+    },
+    CTA: {
+      as: "h2",
+      fontSize: "48px",
+      lineHeight: "48px",
+      fontWeight: "700",
+      letterSpacing: "-1.2px",
+      textAlign: "center",
+      margin: "0",
+      color: "#FFFFFF",
     },
 
     section: {
@@ -29,6 +40,7 @@ export function AppHeading({
       fontSize: "36px",
       lineHeight: "40px",
       fontWeight: "700",
+      margin: "0",
     },
   };
 

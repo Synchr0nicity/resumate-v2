@@ -194,7 +194,12 @@ const Hero = () => {
           <Text mb="0" fontSize="14px" fontWeight="500" lineHeight="20px">
             Trusted by professionals hired at
           </Text>
-          <ButtonGroup gap="64px" fontSize="29px" lineHeight="29px">
+          <ButtonGroup
+            gap="64px"
+            fontSize="29px"
+            lineHeight="29px"
+            color="#0F172A"
+          >
             <Box>
               <i className="fa-brands fa-google"></i>
             </Box>
