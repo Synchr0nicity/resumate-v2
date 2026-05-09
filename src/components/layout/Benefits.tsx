@@ -11,7 +11,7 @@ import React from "react";
 import DoubleCheck from "@/assets/svg/double-check.svg";
 import { AppHeading } from "../atoms/AppHeading";
 
-const WhyUs = () => {
+const Benefits = () => {
   const value = useBreakpointValue({
     base: "small",
     lg: "desktop",
@@ -226,4 +226,4 @@ const WhyUs = () => {
   );
 };
 
-export default WhyUs;
+export default Benefits;

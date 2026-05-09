@@ -1,10 +1,11 @@
 import { Flex, Link, Text, Button, ButtonGroup, Box } from "@chakra-ui/react";
 import NextLink from "next/link";
 import Hero from "../components/layout/Hero";
-import WhyUs from "../components/layout/WhyUs";
+import Benefits from "../components/layout/Benefits";
 import HowWeWork from "@/components/layout/HowWeWork";
 import SuccessStories from "@/components/layout/SuccessStories";
 import CTA from "@/components/layout/CTA";
+import Templates from "@/components/layout/templates/Templates";
 
 export default function Home() {
   return (
@@ -17,7 +18,8 @@ export default function Home() {
       width="100vw"
     >
       <Hero />
-      <WhyUs />
+      <Benefits />
+      <Templates />
       <HowWeWork />
       <SuccessStories />
       <CTA />
