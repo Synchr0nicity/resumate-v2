@@ -6,6 +6,7 @@ import HowWeWork from "@/components/layout/HowWeWork";
 import SuccessStories from "@/components/layout/SuccessStories";
 import CTA from "@/components/layout/CTA";
 import Templates from "@/components/layout/templates/Templates";
+import Pricing from "@/components/layout/pricing/Pricing";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Benefits />
       <Templates />
       <HowWeWork />
+      <Pricing />
       <SuccessStories />
       <CTA />
     </Flex>

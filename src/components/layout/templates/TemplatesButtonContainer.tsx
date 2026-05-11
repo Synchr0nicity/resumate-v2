@@ -1,12 +1,30 @@
 "use client";
 
-import { Button, ButtonGroup } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Box, Button, ButtonGroup, Text } from "@chakra-ui/react";
+import { useLayoutEffect, useRef, useState } from "react";
+
+type BtnType = "All" | "Creative" | "Corporate";
 
 const TemplatesButtonContainer = () => {
-  const [activeBtn, setActiveBtn] = useState<"all" | "creative" | "corporate">(
-    "all",
-  );
+  const [activeBtn, setActiveBtn] = useState<BtnType>("All");
+
+  const buttonRefs = useRef<Record<BtnType, HTMLButtonElement | null>>({
+    All: null,
+    Creative: null,
+    Corporate: null,
+  });
+
+  const [left, setLeft] = useState(0);
+
+  useLayoutEffect(() => {
+    const activeElement = buttonRefs.current[activeBtn];
+
+    if (activeElement) {
+      setLeft(activeElement.offsetLeft);
+    }
+  }, [activeBtn]);
+
+  const buttons: BtnType[] = ["All", "Creative", "Corporate"];
 
   return (
     <ButtonGroup
@@ -14,46 +32,50 @@ const TemplatesButtonContainer = () => {
       bg="#F4F6F8"
       borderRadius="8px"
       border="1px solid #E2E8F0"
+      position="relative"
     >
-      <Button
-        bg={activeBtn === "all" ? "#fff" : "transparent"}
-        color={activeBtn === "all" ? "black" : "#64748B"}
-        // w="48.5px"
-        p="8px 16px"
-        fontSize="14px"
-        fontWeight="600"
-        lineHeight="20px"
+      <Box
+        position="absolute"
+        left={`${left}px`}
+        top="4px"
+        bg="white"
         borderRadius="6px"
-        onClick={() => setActiveBtn("all")}
-      >
-        All
-      </Button>
-      <Button
-        bg={activeBtn === "creative" ? "#fff" : "transparent"}
-        color={activeBtn === "creative" ? "black" : "#64748B"}
-        // w="48.5px"
         p="8px 16px"
-        fontSize="14px"
-        fontWeight="600"
-        lineHeight="20px"
-        borderRadius="6px"
-        onClick={() => setActiveBtn("creative")}
+        transition="left .15s ease"
+        boxShadow="sm"
+        zIndex={0}
       >
-        Creative
-      </Button>
-      <Button
-        bg={activeBtn === "corporate" ? "#fff" : "transparent"}
-        color={activeBtn === "corporate" ? "black" : "#64748B"}
-        // w="48.5px"
-        p="8px 16px"
-        fontSize="14px"
-        fontWeight="600"
-        lineHeight="20px"
-        borderRadius="6px"
-        onClick={() => setActiveBtn("corporate")}
-      >
-        Corporate
-      </Button>
+        <Text
+          as="span"
+          opacity="0"
+          fontSize="14px"
+          fontWeight="600"
+          lineHeight="20px"
+        >
+          {activeBtn}
+        </Text>
+      </Box>
+
+      {buttons.map((btn) => (
+        <Button
+          key={btn}
+          ref={(el) => {
+            buttonRefs.current[btn] = el;
+          }}
+          bg="transparent"
+          color={activeBtn === btn ? "black" : "#64748B"}
+          p="8px 16px"
+          fontSize="14px"
+          fontWeight="600"
+          lineHeight="20px"
+          borderRadius="6px"
+          position="relative"
+          zIndex={1}
+          onClick={() => setActiveBtn(btn)}
+        >
+          {btn}
+        </Button>
+      ))}
     </ButtonGroup>
   );
 };
