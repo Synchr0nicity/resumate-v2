@@ -24,7 +24,7 @@ type Cards = Card[];
 const PricingCards = ({
   selectedFrequency,
 }: {
-  selectedFrequency: "annual" | "monthly";
+  selectedFrequency: "annually" | "monthly";
 }) => {
   const cards: Cards = [
     {
@@ -92,7 +92,7 @@ const PricingCards = ({
     <Flex width="100%" gap="24px" justifyContent="center">
       {cards
         .filter((card) => {
-          if (selectedFrequency === "annual") {
+          if (selectedFrequency === "annually") {
             return card.frequency === "Annual";
           } else return card.frequency !== "Annual";
         })
