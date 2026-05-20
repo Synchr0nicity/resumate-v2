@@ -7,6 +7,7 @@ import SuccessStories from "@/components/layout/SuccessStories";
 import CTA from "@/components/layout/CTA";
 import Templates from "@/components/layout/templates/Templates";
 import Pricing from "@/components/layout/pricing/Pricing";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <Pricing />
       <SuccessStories />
       <CTA />
+      <Footer />
     </Flex>
   );
 }

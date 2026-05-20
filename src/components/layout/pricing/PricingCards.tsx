@@ -202,6 +202,7 @@ const PricingButton = ({
       borderRadius="12px"
       color={special ? "#ffff" : "black"}
       bg={special ? "#4F46E5" : "#F4F6F8"}
+      _hover={{ bg: special ? "#3A32B8" : "#E2E8F0" }}
     >
       {content}
     </Button>
