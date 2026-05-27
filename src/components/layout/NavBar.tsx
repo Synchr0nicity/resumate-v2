@@ -1,9 +1,14 @@
+"use client";
+
 import { Flex, ButtonGroup, Button, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
 import { AppText } from "../atoms/AppText";
+import { useRouter } from "next/navigation";
 
 const NavBar = () => {
+  const router = useRouter();
+
   return (
     <Flex
       py="20px"
@@ -121,6 +126,7 @@ const NavBar = () => {
           color="black"
           transition="color .3s ease-in-out"
           _hover={{ color: "#4f46e5" }}
+          onClick={() => router.push("/login")}
         >
           Log in
         </Button>
