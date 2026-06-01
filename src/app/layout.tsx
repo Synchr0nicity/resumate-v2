@@ -1,6 +1,6 @@
 // app/layout.tsx
 import { Box } from "@chakra-ui/react";
-import NavBar from "../components/layout/NavBar";
+import NavBar from "../components/layout/navBar/NavBar";
 import Provider from "./provider";
 
 import { Plus_Jakarta_Sans } from "next/font/google";

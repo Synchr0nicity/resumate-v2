@@ -2,29 +2,16 @@
 
 import { Flex, ButtonGroup, Button, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
-import React from "react";
-import { AppText } from "../atoms/AppText";
+import React, { Fragment } from "react";
+import { AppText } from "../../atoms/AppText";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
-const NavBar = () => {
+const NavBarLoggedOut = () => {
   const router = useRouter();
 
   return (
-    <Flex
-      py="20px"
-      px="79px"
-      width="100%"
-      height="fit-content"
-      as="nav"
-      justifyContent="space-between"
-      fontSize="14px"
-      border="1px solid #E2E8F0"
-      position="fixed"
-      top="0"
-      left="0"
-      zIndex={10}
-      bg="#ffff"
-    >
+    <Fragment>
       <Link
         href="#"
         as={NextLink}
@@ -153,8 +140,8 @@ const NavBar = () => {
           Build Resume
         </Button>
       </ButtonGroup>
-    </Flex>
+    </Fragment>
   );
 };
 
-export default NavBar;
+export default NavBarLoggedOut;
