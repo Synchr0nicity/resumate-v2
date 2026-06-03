@@ -16,11 +16,34 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
 
-    LinkedIn({
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      type: "oauth",
+      idToken: true,
+      wellKnown:
+        "https://www.linkedin.com/oauth/.well-known/openid-configuration",
+      authorization: {
+        params: {
+          scope: "openid profile email",
+        },
+      },
       clientId: process.env.LINKEDIN_CLIENT_ID!,
       clientSecret: process.env.LINKEDIN_CLIENT_SECRET!,
-      issuer: "https://www.linkedin.com/oauth",
-    }),
+      client: {
+        token_endpoint_auth_method: "client_secret_post",
+      },
+      allowDangerousEmailAccountLinking: true,
+      checks: ["state"],
+      profile(profile) {
+        return {
+          id: profile.sub,
+          name: profile.name,
+          email: profile.email ?? null,
+          image: profile.picture ?? null,
+        };
+      },
+    },
     CredentialsProvider,
   ],
   session: {
