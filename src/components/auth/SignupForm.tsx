@@ -95,6 +95,13 @@ export default function SignupForm({ setMode }: LoginFormProps) {
       setLoading(false);
       return;
     }
+
+    await signIn("credentials", {
+      email,
+      password,
+      callbackUrl: "/dashboard",
+    });
+
     setLoading(false);
 
     console.log("User created successfully", data);
